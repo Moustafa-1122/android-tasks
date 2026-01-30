@@ -11,14 +11,14 @@ import com.example.projectwork.R;
 
 public class SplashActivitie extends AppCompatActivity {
 
-    private static final int SPLASH_DURATION = 3000; // 3 ثواني
+    private static final int SPLASH_DURATION = 3000; // 3 Second
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_activitie);
 
-        // Handler للانتظار 3 ثواني
+        // Handler For wating 3 second
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -33,15 +33,15 @@ public class SplashActivitie extends AppCompatActivity {
 
         Intent intent;
         if (isLoggedIn) {
-            // إذا مسجل دخول → روح على MainActivity
+            // إIf login go to MainActivity
             intent = new Intent(SplashActivitie.this, Main1Activity.class);
         } else {
-            // إذا مش مسجل دخول → روح على LoginActivity
+            //If not Login go to LoginActivity
             intent = new Intent(SplashActivitie.this, LoginActivity.class);
         }
 
         startActivity(intent);
-        finish(); // إغلاق SplashActivity حتى ما يرجع عليها
+        finish(); 
     }
 
 
