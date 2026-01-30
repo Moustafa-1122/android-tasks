@@ -48,10 +48,10 @@ public class TasksFragment extends Fragment {
         adapter = new TasksAdapter(getContext(), taskList);
         recyclerView.setAdapter(adapter);
 
-        // ⭐ Initialize ViewModel
+        //  Initialize ViewModel
         viewModel = new ViewModelProvider(this).get(TaskViewModel.class);
 
-        // ⭐ Observe LiveData
+        //  Observe LiveData
         observeViewModel();
 
         // Load tasks
@@ -63,7 +63,7 @@ public class TasksFragment extends Fragment {
         return view;
     }
 
-    // ⭐ Observe ViewModel data
+    //  Observe ViewModel data
     private void observeViewModel() {
         // Observe tasks
         viewModel.getTasksLiveData().observe(getViewLifecycleOwner(), tasks -> {
