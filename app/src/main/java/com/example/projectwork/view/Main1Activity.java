@@ -68,16 +68,16 @@ public class Main1Activity extends AppCompatActivity {
 
                 if (itemId == R.id.homeId) {
                     selectedFragment = new TasksFragment();
-                    title = "Home"; // ⭐ العنوان
+                    title = "Home"; 
                 } else if (itemId == R.id.profileId) {
                     selectedFragment = new ProfileFragment();
-                    title = "Profile"; // ⭐ العنوان
+                    title = "Profile"; 
                 } else if (itemId == R.id.settingsId) {
                     selectedFragment = new SettingsFragment();
-                    title = "Settings"; // ⭐ العنوان
+                    title = "Settings"; 
                 } else if (itemId == R.id.aboutId) {
                     selectedFragment = new TimerFragment();
-                    title = "About"; // ⭐ العنوان
+                    title = "About"; 
                 }
 
                 if (selectedFragment != null) {
@@ -97,7 +97,7 @@ public class Main1Activity extends AppCompatActivity {
 
     // LogOut Function
     private void performLogout() {
-        // إنشاء Dialog للتأكيد
+          
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Logout")
                 .setMessage("Are you sure you want to logou?")
