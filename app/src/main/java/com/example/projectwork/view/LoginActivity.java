@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         boolean rememberMe = sharedPreferences.getBoolean("rememberMe", false);
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
-        // ✅ فقط إذا Remember Me مفعل والمسجل دخول
+//  Only if Remember Me is enabled and the user is logged in
         if (rememberMe && isLoggedIn) {
             navigateToMain();
             return;
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         cbRememberMe = findViewById(R.id.cbRememberMe);
         btnLogin = findViewById(R.id.btnLogin);
 
-        // استرجاع اسم المستخدم إذا Remember Me مفعل
+// Retrieve the username if Remember Me is enabled
         if (rememberMe) {
             cbRememberMe.setChecked(true);
             etUsername.setText(sharedPreferences.getString("username", ""));
@@ -68,27 +68,27 @@ public class LoginActivity extends AppCompatActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-        // التحقق من الحقول الفارغة
+        // Chek if is Empty
         if (username.isEmpty() || password.isEmpty()) {
             Snackbar.make(
                     findViewById(android.R.id.content),
-                    "الرجاء إدخال اسم المستخدم وكلمة المرور",
+                    "Please Enter the UserName And Password",
                     Snackbar.LENGTH_SHORT
             ).show();
             return;
         }
 
-        // التحقق من صحة البيانات
+        //    Chek the Data
         if (validUsers.containsKey(username) && validUsers.get(username).equals(password)) {
-            // تسجيل دخول ناجح
+            //Correct Login
             saveLoginState(username);
-            Toast.makeText(this, "مرحباً " + username + "!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Helo " + username + "!", Toast.LENGTH_SHORT).show();
             navigateToMain();
         } else {
-            // بيانات خاطئة
+            //Errorr Data
             Snackbar.make(
                     findViewById(android.R.id.content),
-                    "❌ اسم المستخدم أو كلمة المرور غير صحيحة",
+                    "❌ User name or password incorrect",
                     Snackbar.LENGTH_LONG
             ).show();
             etPassword.setText("");
@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString("currentUser", username);
         } else {
             editor.putBoolean("rememberMe", false);
-            editor.putBoolean("isLoggedIn", false); // ⚠️ هنا نضع false
+            editor.putBoolean("isLoggedIn", false); // false
             editor.remove("username");
             editor.putString("currentUser", username); // optional
         }
@@ -117,6 +117,6 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToMain() {
         Intent intent = new Intent(this, Main1Activity.class);
         startActivity(intent);
-        finish(); // منع الرجوع لشاشة Login
+        finish(); //  Login
     }
 }
