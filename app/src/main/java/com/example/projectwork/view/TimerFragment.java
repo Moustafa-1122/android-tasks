@@ -3,7 +3,7 @@ package com.example.projectwork.view;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler; // <-- 1. تم تغيير الاستيراد
+import android.os.Handler; 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +27,8 @@ public class TimerFragment extends Fragment {
 
     private TextView tvTimer, tvFirstLogin;
     private Handler handler = new Handler();
-    private long totalTime;      // الوقت المخزّن
-    private long startTime;      // وقت بدء الجلسة
+    private long totalTime;        
+    private long startTime;       
 
     private SharedPreferences prefs;
 
@@ -55,12 +55,12 @@ public class TimerFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_timer, container, false);
         btnExit = view.findViewById(R.id.btn_back);
         btnExit.setOnClickListener(v -> {
-            // ⭐ عرض Dialog للتأكيد
+               
             new AlertDialog.Builder(getContext())
                     .setTitle("Exit App")
                     .setMessage("Are you sure you want to exit?")
                     .setPositiveButton("Yes", (dialog, which) -> {
-                        getActivity().finishAffinity(); // خروج من التطبيق
+                        getActivity().finishAffinity(); //Exit the Application
                     })
                     .setNegativeButton("No", null)
                     .show();
